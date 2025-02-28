@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Siquijor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #DFDED8;
+            padding-top: 150px;
+        }
+
+        /* Fixed Header */
+        header {
+            background-color: #121F56;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #DFDED8;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #597db6;
+        }
+
+        nav ul li a[href="index.html"]:hover {
+            background-color: transparent;
+        }
+
+        .sticker {
+            height: 60px;
+            width: auto;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            margin-bottom: 20px;
+        }
+
+        .places-grid .place {
+            background-color: #F5F4F4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .places-grid .place:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+        }
+
+        .places-grid .place img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .places-grid .place h3 {
+            color: #635353;
+            font-size: 1.5rem;
+            font-family: 'Inclusive Sans', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .overlay-content {
+            background-color: #F5F4F4;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            text-align: left;
+        }
+
+        .overlay-content h2 {
+            color: #121F56;
+            font-size: 2rem;
+            font-family: 'Inclusive Sans', sans-serif;
+            
+            margin-bottom: 15px;
+        }
+
+        .overlay-content p {
+            margin-bottom: 15px;
+        }
+
+        .overlay-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .overlay-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            background-color: #121F56;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Inclusive Sans', sans-serif;
+        }
+
+        .close-btn:hover {
+            background-color: #597db6;
+        }
+
+        footer {
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+            background-color: #DFDED8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="sticker.png" alt="SIQUIJOR" class="sticker"></a></li>
+                <li><a href="wtd.html">WHAT TO DO</a></li>
+                <li><a href="wtg.html">WHERE TO GO</a></li>
+                <li><a href="delicacies.html">DELICACIES</a></li>
+                <li><a href="eav.html">EVENTS AND FESTIVALS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2></h2>
+            <h2></h2>
+            <div class="places-grid">
+                <div class="place" onclick="openOverlay('pitogo')">
+                    <img src="pitogo.png" alt="Pitogo Cliff">
+                    <h3>Pitogo Cliff</h3>
+                </div>
+                <div class="place" onclick="openOverlay('salagdoong')">
+                    <img src="saladoong.png" alt="Salagdoong Beach">
+                    <h3>Salagdoong Beach</h3>
+                </div>
+                <div class="place" onclick="openOverlay('lazi')">
+                    <img src="lazi.png" alt="San Isidro Labrador Church">
+                    <h3>San Isidro Labrador Church and Convent</h3>
+                </div>
+                <div class="place" onclick="openOverlay('cambugahay')">
+                    <img src="cambugahay.png" alt="Cambugahay Falls">
+                    <h3>Cambugahay Falls</h3>
+                </div>
+                <div class="place" onclick="openOverlay('paliton')">
+                    <img src="paliton.png" alt="Paliton Beach">
+                    <h3>Paliton Beach</h3>
+                </div>
+                <div class="place" onclick="openOverlay('lugnason')">
+                    <img src="lugnason.png" alt="Lugnason Falls">
+                    <h3>Lugnason Falls</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Overlay for Pitogo Cliff -->
+    <div id="pitogo-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Pitogo Cliff</h2>
+            <p>It’s a hidden gem that offers a serene and tranquil atmosphere, perfect for those looking to escape the crowds and enjoy nature.</p>
+            <ul>
+                <li><strong>Location:</strong> Pitogo Falls is located in the town of Maria, on the eastern side of Siquijor Island.</li>
+                <li><strong>Accessibility:</strong> The falls are relatively easy to reach, with a short hike through lush greenery.</li>
+                <li><strong>Ambiance:</strong> Unlike the more popular Cambugahay Falls, Pitogo Falls is quieter and less developed, making it ideal for a peaceful retreat.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('pitogo')">Close</button>
+        </div>
+    </div>
+
+    <!-- Overlay for Salagdoong Beach -->
+    <div id="salagdoong-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Salagdoong Beach</h2>
+            <p>Known for its crystal-clear turquoise waters, white sand, and thrilling cliff diving spots, it's a must-visit destination for travelers seeking both relaxation and adventure.</p>
+            <ul>
+                <li><strong>Location:</strong> Salagdoong Beach is located in the municipality of Maria, on the northeastern coast of Siquijor Island.</li>
+                <li><strong>Accessibility:</strong> The beach is part of the Salagdoong Forest Resort, which is well-maintained and easily accessible by motorbike, car, or tricycle.</li>
+                <li><strong>Features:</strong> The beach is famous for its cliff diving platforms, natural rock formations, and vibrant marine life.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('salagdoong')">Close</button>
+        </div>
+    </div>
+
+    <!-- Overlay for San Isidro Labrador Church -->
+    <div id="lazi-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>San Isidro Labrador Church</h2>
+            <p>One of the most iconic and historically significant landmarks on the island of Siquijor, Philippines.</p>
+            <ul>
+                <li><strong>Location:</strong> Lazi, Siquijor, Philippines.</li>
+                <li><strong>Historical Significance:</strong> Built in the 19th century, the church and convent are recognized as National Cultural Treasures by the National Museum of the Philippines.</li>
+                <li><strong>Architectural Style:</strong> The structures showcase Spanish colonial architecture, with coral stones and hardwood used in their construction.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('lazi')">Close</button>
+        </div>
+    </div>
+
+    <!-- Overlay for Cambugahay Falls -->
+    <div id="cambugahay-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Cambugahay Falls</h2>
+            <p>Known for its multi-tiered cascades, turquoise pools, and lush surroundings, it’s a must-visit destination for nature lovers and adventure seekers.</p>
+            <ul>
+                <li><strong>Location:</strong> Located in the town of Lazi, Siquijor, Philippines.</li>
+                <li><strong>Features:</strong> Cambugahay Falls is a three-tiered waterfall with crystal-clear turquoise pools, surrounded by lush greenery and natural rock formations.</li>
+                <li><strong>Accessibility:</strong> The falls are easily accessible, with a short hike down a staircase from the main road.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('cambugahay')">Close</button>
+        </div>
+    </div>
+
+    <!-- Overlay for Paliton Beach -->
+    <div id="paliton-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Paliton Beach</h2>
+            <p>Known for its powdery white sand, crystal-clear turquoise waters, and serene atmosphere, it’s a must-visit destination for travelers seeking relaxation and natural beauty.</p>
+            <ul>
+                <li><strong>Location:</strong> Located in the town of San Juan, on the western coast of Siquijor Island.</li>
+                <li><strong>Features:</strong> Paliton Beach is famous for its pristine white sand, shallow turquoise waters, and palm-fringed shoreline.</li>
+                <li><strong>Ambiance:</strong> The beach is less crowded compared to other tourist spots, making it ideal for those looking for a peaceful escape.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('paliton')">Close</button>
+        </div>
+    </div>
+
+    <!-- Overlay for Lugnason Falls -->
+    <div id="lugnason-overlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Lugnason Falls</h2>
+            <p>Tucked away in a lush, tropical setting, this waterfall offers a serene and off-the-beaten-path experience for travelers seeking tranquility and natural beauty.</p>
+            <ul>
+                <li><strong>Location:</strong> Located in the town of Lazi, Siquijor, Philippines.</li>
+                <li><strong>Features:</strong> Lugnason Falls is a single-tier waterfall with a natural pool at its base, surrounded by dense foliage and rocky formations.</li>
+                <li><strong>Ambiance:</strong> Unlike the more popular Cambugahay Falls, Lugnason Falls is quieter and less developed, making it ideal for those looking to escape the crowds.</li>
+            </ul>
+            <button class="close-btn" onclick="closeOverlay('lugnason')">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; All rights reserved | Siquijor 2025 by L</p>
+    </footer>
+
+    <script>
+        function openOverlay(id) {
+            document.getElementById(`${id}-overlay`).style.display = 'flex';
+        }
+
+        function closeOverlay(id) {
+            document.getElementById(`${id}-overlay`).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

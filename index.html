@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Siquijor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #DFDED8;
+            padding-top: 80px; 
+        }
+
+        /* Fixed Header */
+        header {
+            background-color: #121F56;
+            color: #fff;
+            padding: 10px 20px; 
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #DFDED8;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #597db6;
+        }
+
+        nav ul li a[href="index.html"]:hover {
+            background-color: transparent;
+        }
+
+        .sticker {
+            height: 60px;
+            width: auto;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome {
+            color: #656262;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Inclusive Sans', sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .welcome p {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .hero {
+            background-image: url(welcome.png);
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="sticker.png" alt="SIQUIJOR" class="sticker"></a></li>
+                <li><a href="wtd.html">WHAT TO DO</a></li>
+                <li><a href="wtg.html">WHERE TO GO</a></li>
+                <li><a href="delicacies.html">DELICACIES</a></li>
+                <li><a href="eav.html">EVENTS AND FESTIVALS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+    </div>
+
+    <main>
+        <section class="welcome">
+            <p>
+                Siquijor is often called the "Island of Fire" or "Mystic Island" due to its folklore and traditions involving healers, witchcraft, and spiritual rituals. Locals are known for creating traditional potions, charms, and performing healing rituals. During Holy Week, the island attracts visitors seeking spiritual healing and mystical experiences.
+            </p>
+            <p>
+                Siquijor is located in the Central Visayas region, southeast of Cebu and Negros, and southwest of Bohol. It is the third smallest province in the Philippines, covering an area of approximately 343.5 square kilometers. As of recent estimates, the island has a population of around 100,000 people.
+            </p>
+            <p>
+                Siquijor is a hidden gem in the Philippines, offering a mix of natural wonders, cultural richness, and a touch of mystery.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; All rights reserved | Siquijor 2025 by L</p>
+    </footer>
+</body>
+</html>

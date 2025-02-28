@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Siquijor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #DFDED8;
+            padding-top: 150px;
+        }
+
+        header {
+            background-color: #121F56;
+            color: #fff;
+            padding: 10px 20px; 
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #DFDED8;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        nav ul li a:hover {
+            background-color: #597db6; 
+        }
+
+        nav ul li a[href="index.html"]:hover {
+            background-color: transparent; 
+        }
+
+        .sticker {
+            height: 60px; 
+            width: auto; 
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 35px;
+        }
+
+
+        .image-grid img:last-child {
+            grid-column: span 2;
+            justify-self: center;
+            max-width: 50%;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 5px solid #121F56;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(18, 31, 86, 0.7);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay span {
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .modal-content h2 {
+            color: #121F56;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #121F56;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="sticker.png" alt="SIQUIJOR" class="sticker"></a></li>
+                <li><a href="wtd.html">WHAT TO DO</a></li>
+                <li><a href="wtg.html">WHERE TO GO</a></li>
+                <li><a href="delicacies.html">DELICACIES</a></li>
+                <li><a href="eav.html">EVENTS AND FESTIVALS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="dilaab.png" alt="Dilaab Festival" id="dilaab-img">
+                <div class="image-overlay">
+                    <span>See Details</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="bugwas.png" alt="Bugwas Festival" id="bugwas-img">
+                <div class="image-overlay">
+                    <span>See Details</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="canaan.png" alt="Canaan Festival" id="canaan-img">
+                <div class="image-overlay">
+                    <span>See Details</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="saging.png" alt="Saging Festival" id="saging-img">
+                <div class="image-overlay">
+                    <span>See Details</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="solili.png" alt="Solili Festival" id="solili-img">
+                <div class="image-overlay">
+                    <span>See Details</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Dilaab Festival Details -->
+    <div id="dilaab-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-dilaab-modal">&times;</span>
+            <h2>Dilaab Festival</h2>
+            <p><strong>Meaning of "Dilaab":</strong></p>
+            <p>The word "Dilaab" comes from the Cebuano term meaning "to ignite" or "to set on fire." It symbolizes the burning passion, faith, and unity of the people of Siquijor.</p>
+            <p><strong>Purpose and Significance:</strong></p>
+            <p>The festival is celebrated to honor the island's <strong>patron saint</strong>, <strong>St. Francis of Assisi</strong>, and to showcase the rich cultural heritage, traditions, and spiritual devotion of the Siquijodnons. It also serves as a way to promote tourism, highlighting the island's natural beauty, mystical charm, and warm hospitality.</p>
+            <p><strong>When is it Celebrated?</strong></p>
+            <p>The Dilaab Festival is held annually in October, coinciding with the feast day of St. Francis of Assisi on <strong>October 4</strong>. The festivities usually last for several days, featuring a mix of religious, cultural, and recreational activities.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Bugwas Festival Details -->
+    <div id="bugwas-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-bugwas-modal">&times;</span>
+            <h2>Bugwas Festival</h2>
+            <p><strong>Meaning of "Bugwas":</strong></p>
+            <p>The term "Bugwas" refers to the <strong>splashing of water</strong> or the <strong>spray of liquid</strong>, symbolizing the refreshing and life-giving properties of water, which is essential for agriculture and daily life. It also represents the cleansing and renewal of the community's spirit.</p>
+            <p><strong>Purpose and Significance:</strong></p>
+            <p>The Bugwas Festival is celebrated to honor <strong>San Juan Bautista (St. John the Baptist)</strong>, the patron saint of San Juan, Siquijor. St. John the Baptist is often associated with water, as he baptized people in the Jordan River. The festival also highlights the town's agricultural heritage, particularly its reliance on farming and fishing, and serves as a thanksgiving celebration for a bountiful harvest.</p>
+            <p><strong>When is it Celebrated?</strong></p>
+            <p>The Bugwas Festival is held annually in June, coinciding with the feast day of St. John the Baptist on <strong>June 24</strong>. The festivities usually last for several days, featuring a mix of religious, cultural, and recreational activities.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Canaan Festival Details -->
+    <div id="canaan-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-canaan-modal">&times;</span>
+            <h2>Canaan Festival</h2>
+            <p><strong>Meaning of "Cana-an":</strong></p>
+            <p>The term "Cana-an" is derived from the Cebuano word meaning <strong>"promised land"</strong> or <strong>"land of abundance."</strong> It symbolizes the town's gratitude for the blessings of a bountiful harvest, natural resources, and spiritual prosperity.</p>
+            <p><strong>Purpose and Significance:</strong></p>
+            <p>The Cana-an Festival is celebrated to honor the town's <strong>patron saint</strong>, <strong>San Isidro Labrador (St. Isidore the Farmer)</strong>, who is the patron saint of farmers and laborers. The festival is a thanksgiving celebration for a successful harvest and a prayer for continued abundance. It also serves as a way to showcase Lazi's rich cultural heritage, traditions, and the unity of its people.</p>
+            <p><strong>When is it Celebrated?</strong></p>
+            <p>The Cana-an Festival is held annually in May, coinciding with the feast day of San Isidro Labrador on <strong>May 15</strong>. The festivities usually last for several days, featuring a mix of religious, cultural, and recreational activities.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Saging Festival Details -->
+    <div id="saging-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-saging-modal">&times;</span>
+            <h2>Saging Festival</h2>
+            <p><strong>Meaning of "Saging":</strong></p>
+            <p>The term "Saging" is the Filipino word for banana, a staple crop in Larena and a vital part of the local economy and diet. The festival celebrates the banana's role in sustaining the community and its contribution to the town's livelihood.</p>
+            <p><strong>Purpose and Significance:</strong></p>
+            <p>The Saging Festival is a thanksgiving <strong>celebration for the bountiful harvest of bananas and other agricultural products</strong>. It also aims to promote the banana industry in Larena and raise awareness about the crop's economic and nutritional value. The festival showcases the town's agricultural heritage, creativity, and community spirit, while also honoring the hard work of local farmers.</p>
+            <p><strong>When is it Celebrated?</strong></p>
+            <p>The Saging Festival is held annually in <strong>April</strong>, coinciding with the town's founding anniversary or other significant local events. The festivities usually last for several days, featuring a mix of cultural, agricultural, and recreational activities.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Solili Festival Details -->
+    <div id="solili-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-solili-modal">&times;</span>
+            <h2>Solili Festival</h2>
+            <p><strong>Meaning of "Solili":</strong></p>
+            <p>The term "Solili" is derived from the Cebuano word meaning "to search" or "to seek." It symbolizes the town's quest for spiritual enlightenment, cultural identity, and community unity.</p>
+            <p><strong>Purpose and Significance:</strong></p>
+            <p>The Solili Festival is celebrated to honor the town's <strong>patron saint</strong>, <strong>Our Lady of Divine Providence (Nuestra Señora de la Divina Providencia)</strong>, who is venerated for her guidance and protection. The festival is a thanksgiving celebration for the blessings received and a prayer for continued guidance and prosperity. It also serves as a way to showcase Maria's rich cultural heritage, traditions, and the unity of its people.</p>
+            <p><strong>When is it Celebrated?</strong></p>
+            <p>The Solili Festival is held annually in November, coinciding with the feast day of Our Lady of Divine Providence on <strong>November 19</strong>. The festivities usually last for several days, featuring a mix of religious, cultural, and recreational activities.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; All rights reserved | Siquijor 2025 by L</p>
+    </footer>
+
+    <script>
+       // JavaScript to handle modal functionality
+const dilaabContainer = document.querySelector('#dilaab-img').parentElement;
+const dilaabModal = document.getElementById('dilaab-modal');
+const closeDilaabModal = document.getElementById('close-dilaab-modal');
+
+const bugwasContainer = document.querySelector('#bugwas-img').parentElement;
+const bugwasModal = document.getElementById('bugwas-modal');
+const closeBugwasModal = document.getElementById('close-bugwas-modal');
+
+const canaanContainer = document.querySelector('#canaan-img').parentElement;
+const canaanModal = document.getElementById('canaan-modal');
+const closeCanaanModal = document.getElementById('close-canaan-modal');
+
+const sagingContainer = document.querySelector('#saging-img').parentElement;
+const sagingModal = document.getElementById('saging-modal');
+const closeSagingModal = document.getElementById('close-saging-modal');
+
+const soliliContainer = document.querySelector('#solili-img').parentElement;
+const soliliModal = document.getElementById('solili-modal');
+const closeSoliliModal = document.getElementById('close-solili-modal');
+
+// Open Dilaab modal when Dilaab container is clicked
+dilaabContainer.addEventListener('click', () => {
+    dilaabModal.style.display = 'flex'; // Show modal
+});
+
+// Close Dilaab modal when close button is clicked
+closeDilaabModal.addEventListener('click', () => {
+    dilaabModal.style.display = 'none'; // Hide modal
+});
+
+// Open Bugwas modal when Bugwas container is clicked
+bugwasContainer.addEventListener('click', () => {
+    bugwasModal.style.display = 'flex'; // Show modal
+});
+
+// Close Bugwas modal when close button is clicked
+closeBugwasModal.addEventListener('click', () => {
+    bugwasModal.style.display = 'none'; // Hide modal
+});
+
+// Open Canaan modal when Canaan container is clicked
+canaanContainer.addEventListener('click', () => {
+    canaanModal.style.display = 'flex'; // Show modal
+});
+
+// Close Canaan modal when close button is clicked
+closeCanaanModal.addEventListener('click', () => {
+    canaanModal.style.display = 'none'; // Hide modal
+});
+
+// Open Saging modal when Saging container is clicked
+sagingContainer.addEventListener('click', () => {
+    sagingModal.style.display = 'flex'; // Show modal
+});
+
+// Close Saging modal when close button is clicked
+closeSagingModal.addEventListener('click', () => {
+    sagingModal.style.display = 'none'; // Hide modal
+});
+
+// Open Solili modal when Solili container is clicked
+soliliContainer.addEventListener('click', () => {
+    soliliModal.style.display = 'flex'; // Show modal
+});
+
+// Close Solili modal when close button is clicked
+closeSoliliModal.addEventListener('click', () => {
+    soliliModal.style.display = 'none'; // Hide modal
+});
+
+// Close modals when clicking outside the modal content
+window.addEventListener('click', (event) => {
+    if (event.target === dilaabModal) {
+        dilaabModal.style.display = 'none'; // Hide Dilaab modal
+    }
+    if (event.target === bugwasModal) {
+        bugwasModal.style.display = 'none'; // Hide Bugwas modal
+    }
+    if (event.target === canaanModal) {
+        canaanModal.style.display = 'none'; // Hide Canaan modal
+    }
+    if (event.target === sagingModal) {
+        sagingModal.style.display = 'none'; // Hide Saging modal
+    }
+    if (event.target === soliliModal) {
+        soliliModal.style.display = 'none'; // Hide Solili modal
+    }
+});
+    </script>
+</body>
+</html>
